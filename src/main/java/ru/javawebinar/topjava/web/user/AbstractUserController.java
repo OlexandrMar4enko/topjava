@@ -12,10 +12,10 @@ import static ru.javawebinar.topjava.util.ValidationUtil.assureIdConsistent;
 import static ru.javawebinar.topjava.util.ValidationUtil.checkNew;
 
 public abstract class AbstractUserController {
-    protected final Logger log = LoggerFactory.getLogger(getClass());
+	protected final Logger log = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private UserService service;
+	@Autowired
+	private UserService service;
 
     public List<User> getAll() {
         log.info("getAll");
@@ -33,19 +33,19 @@ public abstract class AbstractUserController {
         return service.create(user);
     }
 
-    public void delete(int id) {
-        log.info("delete {}", id);
-        service.delete(id);
-    }
+	public void delete(int id) {
+		log.info("delete {}", id);
+		service.delete(id);
+	}
 
-    public void update(User user, int id) {
-        log.info("update {} with id={}", user, id);
-        assureIdConsistent(user, id);
-        service.update(user);
-    }
+	public void update(User user, int id) {
+		log.info("update {} with id={}", user, id);
+		assureIdConsistent(user, id);
+		service.update(user);
+	}
 
-    public User getByMail(String email) {
-        log.info("getByEmail {}", email);
-        return service.getByEmail(email);
-    }
+	public User getByMail(String email) {
+		log.info("getByEmail {}", email);
+		return service.getByEmail(email);
+	}
 }
